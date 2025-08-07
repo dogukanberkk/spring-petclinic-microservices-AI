@@ -4,8 +4,8 @@ module "master" {
   name               = "k8s-master-node"
   ami                = "ami-020cba7c55df1f615" # us-east-1 Canonical, Ubuntu, 24.04, amd64 noble image
   instance_type      = "t3a.medium"
-  subnet_id          = "JENKINS_SERVER_subnet_id_0" #module.vpc.public_subnet_ids[0]
-  vpc_id             = "JENKINS_SERVER_vpc_id"    #module.vpc.vpc_id
+  subnet_id          = "subnet-05653d753b4c54074" #module.vpc.public_subnet_ids[0]
+  vpc_id             = "vpc-0fe5c8c7ebe75a014"    #module.vpc.vpc_id
   key_name           = aws_key_pair.generated_key.key_name # "devops-keypem-va"
   security_group_ids = aws_security_group.ec2_sg.id
   user_data          = file("${path.module}/scripts/master_user_data.sh")
@@ -23,8 +23,8 @@ module "worker_1" {
   name               = "k8s-worker1-node"
   ami                = "ami-020cba7c55df1f615" # us-east-1 Canonical, Ubuntu, 24.04, amd64 noble image
   instance_type      = "t3a.medium"
-  subnet_id          = "JENKINS_SERVER_subnet_id_1" #module.vpc.public_subnet_ids[1]
-  vpc_id             = "JENKINS_SERVER_vpc_id"    #module.vpc.vpc_id
+  subnet_id          = "subnet-05653d753b4c54074" #module.vpc.public_subnet_ids[1]
+  vpc_id             = "vpc-0fe5c8c7ebe75a014"    #module.vpc.vpc_id
   key_name           = aws_key_pair.generated_key.key_name # "devops-keypem-va"
   security_group_ids = aws_security_group.ec2_sg.id
   user_data          = file("${path.module}/scripts/worker1_user_data.sh")
@@ -43,8 +43,8 @@ module "worker_2" {
   name               = "k8s-worker2-node"
   ami                = "ami-020cba7c55df1f615" # us-east-1 Canonical, Ubuntu, 24.04, amd64 noble image
   instance_type      = "t3a.medium"
-  subnet_id          = "JENKINS_SERVER_subnet_id_2" #module.vpc.public_subnet_ids[2]
-  vpc_id             = "JENKINS_SERVER_vpc_id"    #module.vpc.vpc_id
+  subnet_id          = "subnet-05653d753b4c54074" #module.vpc.public_subnet_ids[2]
+  vpc_id             = "vpc-0fe5c8c7ebe75a014"    #module.vpc.vpc_id
   key_name           = aws_key_pair.generated_key.key_name # "devops-keypem-va"
   security_group_ids = aws_security_group.ec2_sg.id
   user_data          = file("${path.module}/scripts/worker2_user_data.sh")
